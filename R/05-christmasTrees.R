@@ -6,28 +6,28 @@ library(readxl) # part of tidyverse, but needs separate library command as it is
 
 ## read in data
 # attempt 1 - wrong sheet
-read_excel("christmasTrees.xlsx",sheet = "Data",skip=4)
+read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4)
 
 # attempt 2 - too many rows
-read_excel("christmasTrees.xlsx",sheet = "Data")
+read_excel("data/christmasTrees.xlsx",sheet = "Data")
 
 # attempt 3 - almost right
-read_excel("christmasTrees.xlsx",sheet = "Data",skip=4)
+read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4)
 
 # attempt 4 - get rid of spaces in names ... they can cause trouble
-read_excel("christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal")
+read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal")
 
 # attempt 5 - perfect, except year is not named well
-read_excel("christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
+read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
   mutate(year = ...1)
 
 # attempt 6 - treat year as integer to get perfection
-read_excel("christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
+read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
   mutate(year = as.integer(...1)) %>%
   select(year,Real.trees,Fake.trees)
 
 # save attempt 6 to df
-treeDF = read_excel("christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
+treeDF = read_excel("data/christmasTrees.xlsx",sheet = "Data",skip=4,.name_repair = "universal") %>%
   mutate(year = as.integer(...1)) %>%
   select(year,Real.trees,Fake.trees)
 
