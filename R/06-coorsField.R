@@ -20,7 +20,7 @@ browseURL("http://en.wikipedia.org/wiki/Coors_Field")
 # VisitorScore :  # of runs scored by the visiting team
 ###note: If HomeScore > VisitorScore, then the Home team wins the game.
 ###      If HomeScore < VisitorScore, then the Visitor team wins the game.
-load("baseball.RData")   ###ensure this file is in your working directory
+load("data/baseball.RData")   ###ensure this file is in your working directory
 
 ####Manipulate Data to Match Purpose
 baseballData2 = baseballData %>% 
