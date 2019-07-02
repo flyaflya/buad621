@@ -1,3 +1,6 @@
+library(tidyverse)
+library(causact)
+library(greta)
 
 # ----------------------------------------------------------
 ### Revisiting the Get Credit Card Model Based On Car Driven
@@ -18,6 +21,8 @@ graph = dag_create() %>%
 graph %>% dag_render(shortLabel = TRUE)
 graph %>% dag_render()
 graph %>% dag_greta(mcmc = TRUE, warmup = 400) ## get representative sample
+## note: do not use the warmup argument in HW
+
 drawsDF %>% dagp_plot()
 
 ### Now vary your modelling of theta by car model
@@ -43,5 +48,5 @@ drawsDF %>% dagp_plot() + xlim(0,1)  # visually appealling method of plotting
 tidyDrawsDF %>% dagp_plot() 
 
 ### CLASS EXERCISE:  IN ANOTHER R-SCRIPT.  Create an indicator function on the posterior draws to answer what is the probability that theta_KiaForte > theta_ToytCrll ? 
-# (note: this cannot be answered easily any other way)
+
 
