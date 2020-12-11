@@ -1,14 +1,9 @@
-
+## get R-Script from:
+##          
 ## data sources:
 ## https://ourworldindata.org/happiness-and-life-satisfaction
 ## https://population.un.org/wpp2019/Download/Standard/Interpolated/
 ## https://worldhappiness.report/ed/2019/
-## Higher national incomes go together with higher average life satisfaction
-#If we compare life satisfaction reports from around the world at any given point in time, we immediately see that countries with higher average national incomes tend to have higher average life satisfaction scores. In other words: People in richer countries tend to report higher life satisfaction than people in poorer countries. The scatter plot here shows this.
-
-#Each dot in the visualization represents one country. The vertical position of the dots shows national average self-reported life satisfaction in the Cantril Ladder (a scale ranging from 0-10 where 10 is the highest possible life satisfaction); while the horizontal position shows GDP per capita based on purchasing power parity (i.e. GDP per head after adjusting for inflation and cross-country price differences).
-
-#This correlation holds even if we control for other factors: Richer countries tend to have higher average self-reported life satisfaction than poorer countries that are comparable in terms of demographics and other measurable characteristics. You can read more about this in the World Happiness Report 2017, specifically the discussion in Chapter 2.
 
 # preliminaries
 library(tidyverse)
@@ -25,6 +20,7 @@ plotDF = happyDF %>%
   mutate(x_trans = ## centered logarithm of x
            log10(GDPperCapita) - 
            mean(log10(GDPperCapita)))
+plotDF ## see inside plotDF
 
 # see initial data
 plotDF %>%
